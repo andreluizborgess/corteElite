@@ -1,58 +1,59 @@
 import React, {useState}from "react";
-import { Image, StyleSheet, Text, TextInput, Touchable, TouchableOpacity, View } from "react-native";
+import { Image, ScrollView, StyleSheet, Text, TextInput, Touchable, TouchableOpacity, View } from "react-native";
 
 
-function LoginScreen(): JSX.Element {
+function CadastroServicos(): JSX.Element {
 
-    const[email,setEmail]=useState("");
-    const [password,setPassword]=useState("");
     
+    const [nome,setNome]=useState("");
+    const [descricao,setDescricao]=useState("");
+    const [duracao,setDuracao]=useState("");
+    const [preco,setPreco]=useState("");
+    
+
 
     function login(){
         const dados ={
-            email:email,
-            password:password,
-        
+            
+            nome:nome,
+            descricao:descricao,
+            duracao:duracao,
+            preco:preco
+            
         }
         console.log(dados);
         
     }
     return (
-        <View style={styles.container}>
-            <Image
-                style={styles.logo}
-                resizeMode="contain" source={require('../assets/images/user.png')} />
+        
+        <View style={styles.container}>            
             <View style={styles.card}>
-                <Text style={styles.title}>Login</Text>
+                <Text style={styles.title}>Cadastro Serviço</Text>
 
-                
                 <TextInput
                     style={styles.input}
-                    placeholder="E-mail" placeholderTextColor={"#151413"}onChangeText={(textEmail)=> setEmail(textEmail)}></TextInput>
+                    placeholder="nome" placeholderTextColor={"#151413"}onChangeText={(textNome)=> setNome(textNome)}></TextInput>
+                <TextInput
+                    style={styles.input}
+                    placeholder="descricao" placeholderTextColor={"#151413"}onChangeText={(textDescricao)=> setDescricao(textDescricao)}></TextInput>
                  
+                 <TextInput
+                    style={styles.input}
+                    placeholder="duracao" placeholderTextColor={"#151413"}onChangeText={(textDuracao)=> setDuracao(textDuracao)}></TextInput>
+
                 <TextInput
                     style={styles.input}
-                    placeholder="Senha" placeholderTextColor={"#151413"}onChangeText={(textPassword)=> setPassword(textPassword)}
-                    secureTextEntry></TextInput>
+                    placeholder="preço" placeholderTextColor={"#151413"}onChangeText={(textPreco)=> setPreco(textPreco)}></TextInput>
 
                 <TouchableOpacity style={styles.button}  onPress={()=>{login()}}>
-                    <Text style={styles.buttonText}>Entrar</Text>
+                    <Text style={styles.buttonText}>Cadastrar</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity >
-                    <Text style={styles.forgotPassword}>Esqueceu a senha?</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity >
-                    <Text style={styles.forgotPassword}>não possui conta? Cadastre-se</Text>
-                </TouchableOpacity>
-
+                
             </View>
-            <Image
-                style={styles.logoInsta}
-                resizeMode="contain" source={require('../assets/images/insta.webp')} />
+           
         </View>
-       
+        
         
     );
 
@@ -63,12 +64,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#dec0bc'
-    },
-    logo: {
-        width: 80,
-        height: 80,
-        marginBottom: 20,
-        marginTop: -150
     },
     card: {
         backgroundColor: '#FFFFFF',
@@ -116,4 +111,4 @@ marginTop:10,
 alignItems:'center'
     }
 });
-export default LoginScreen;
+export default CadastroServicos;

@@ -2,7 +2,7 @@ import React, {useState}from "react";
 import { Image, StyleSheet, Text, TextInput, Touchable, TouchableOpacity, View } from "react-native";
 
 
-function LoginScreen(): JSX.Element {
+function LoginServicos(): JSX.Element {
 
     const[email,setEmail]=useState("");
     const [password,setPassword]=useState("");
@@ -12,7 +12,7 @@ function LoginScreen(): JSX.Element {
         const dados ={
             email:email,
             password:password,
-        
+            
         }
         console.log(dados);
         
@@ -23,9 +23,9 @@ function LoginScreen(): JSX.Element {
                 style={styles.logo}
                 resizeMode="contain" source={require('../assets/images/user.png')} />
             <View style={styles.card}>
-                <Text style={styles.title}>Login</Text>
+                <Text style={styles.title}>Login Serviços</Text>
 
-                
+               
                 <TextInput
                     style={styles.input}
                     placeholder="E-mail" placeholderTextColor={"#151413"}onChangeText={(textEmail)=> setEmail(textEmail)}></TextInput>
@@ -116,4 +116,4 @@ marginTop:10,
 alignItems:'center'
     }
 });
-export default LoginScreen;
+export default LoginServicos;
